@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/app.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fruits Index Display</h1>
+    <ul>
+        <% for(let i = 0; i < fruits.length; i++){ %>
+            <li>
+                <a href="/fruits/<%= i %>"><%= fruits[i].name %></a> :
+                <a><%= fruits[i].color %></a>
+                <!-- <a href="/fruits/delete/<%= i %>">Delete</a> -->
+                <form action="/fruits/delete/<%= i %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Remove">
+                </form>
+                <form action="/fruits/<%= i %>/edit" novalidate>
+                    <input type="submit" value="Edit">
+                </form>
+                <!-- <a href="/fruits/<%= i %>/edit"> edit</a> -->
+            </li>
+        <% } %>
+    </ul>
+    <a href="/fruits/new"> Create New Fruit</a>
+</body>
+</html>
